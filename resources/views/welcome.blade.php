@@ -13,8 +13,7 @@
 
         <div id="app">
 
-            <tasks list="{{ $tasks }}"></tasks>
-
+            <tasks></tasks>
 
         </div>
 
@@ -28,6 +27,9 @@
     <ul class="list-group" v-for="task in list">
         <li class="list-group-item">
             @{{ task.body }}
+
+            <strong @click="deleteTask(task)">X</strong>
+
         </li>
     </ul>
 

@@ -11,9 +11,14 @@
 |
 */
 
+use App\Task;
+
 Route::get('/', function () {
-    
-    $tasks = \App\Task::latest()->get();
-    
-    return view('welcome', compact('tasks'));
+
+    return view('welcome');
+});
+
+Route::get('api/tasks', function () {
+
+    return Task::latest()->get();
 });

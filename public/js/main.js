@@ -7,11 +7,28 @@ Vue.component('tasks', {
 
     template: '#tasks-template',
 
-    props: ['list'],
+    data: function () {
+        return {
+            list: []
+        };
+    },
 
-    //Decoding Json passed to the list
+    //Get json data using jquery
     created() {
-        this.list = JSON.parse(this.list);
+        this.fetchTasksList()
+    },
+
+    methods: {
+
+        fetchTasksList: function () {
+            $.getJSON('api/tasks', function (tasks) {
+                this.list = tasks
+            }.bind(this));
+        },
+
+        deleteTask: function (task) {
+            this.list.$remove(task);
+        }
     }
 
 });
