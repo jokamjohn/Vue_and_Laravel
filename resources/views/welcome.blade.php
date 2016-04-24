@@ -1,45 +1,44 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Laravel</title>
+<head>
+    <title>Laravel</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
 
-        <style>
-            html, body {
-                height: 100%;
-            }
+</head>
+<body>
+<div class="container">
+    <div class="content">
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
+        <div id="app">
 
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
+            <tasks list="{{ $tasks }}"></tasks>
 
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
 
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Laravel 5</div>
-            </div>
         </div>
-    </body>
+
+    </div>
+</div>
+
+<template id="tasks-template">
+
+    <h1>Tasks</h1>
+
+    <ul class="list-group" v-for="task in list">
+        <li class="list-group-item">
+            @{{ task.body }}
+        </li>
+    </ul>
+
+</template>
+
+
+<script src="js/vue.js"></script>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/main.js"></script>
+<script src="js/bootstrap.js"></script>
+
+
+</body>
 </html>
